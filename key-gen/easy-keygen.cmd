@@ -9,4 +9,4 @@ logout
 
 
 #PROBLEMS
-/etc/init.d/service-name restart
+/etc/init.d/ssh restart
