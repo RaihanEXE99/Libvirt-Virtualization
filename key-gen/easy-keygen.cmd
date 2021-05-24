@@ -23,4 +23,5 @@ ssh-add -l
 
 ## SERVER
 chmod 700 /home/uname/
+chmod 700 /home/uname/.ssh/authorized_keys
 chmod 600 /home/uname/.ssh/authorized_keys
