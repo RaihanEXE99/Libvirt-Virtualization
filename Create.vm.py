@@ -2,7 +2,7 @@ import libvirt
 
 pool = "default"
 
-conn = libvirt.open("qemu+ssh://raihan@51.79.160.118/system")
+conn = libvirt.open("qemu+ssh://username@hostname/system")
 if not conn:
     raise SystemExit("Failed to open connection to qemu:///system")
 
