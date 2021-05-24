@@ -1,4 +1,8 @@
 ## S W TO PKEY U C ACCESS TM
+
+
+######### LOCAL MECHINE #################
+
 ssh-keygen -t rsa -b 4096
 
 # Check Keys
@@ -8,7 +12,8 @@ cd ~/.ssh
 scp ~/.ssh/id_rsa.pub uname@host:/home/uname/.ssh/id_rsa.pub
 
 
-#REMOTE MECHINE
+####### REMOTE MECHINE #################
+
 cat ~/.ssh/id_rsa.pub >> authorized_keys
 
 # Check
@@ -18,3 +23,9 @@ cat ~/.ssh/authorized_keys
 chmod 700 ~/.ssh/
 
 chmod 600 ~/.ssh/*
+
+
+######## LOCAL MECHINE #############
+
+ssh uname@hostname
+
