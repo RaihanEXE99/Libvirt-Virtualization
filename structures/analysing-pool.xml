@@ -1,0 +1,17 @@
+<pool type="dir">
+  <name>download</name>
+  <uuid>66175d22-7701-4915-9537-dad24e1dbfbb</uuid>
+  <capacity unit="bytes">12083961856</capacity>
+  <allocation unit="bytes">7269081088</allocation>
+  <available unit="bytes">4814880768</available>
+  <source>
+  </source>
+  <target>
+    <path>/home/raihan/Downloads</path>
+    <permissions>
+      <mode>0755</mode>
+      <owner>1000</owner>
+      <group>1000</group>
+    </permissions>
+  </target>
+</pool>
