@@ -15,3 +15,75 @@
     </permissions>
   </target>
 </pool>
+
+
+<!-- with qcow2 -->
+<domain type="kvm">
+  <name>vm1</name>
+  <uuid>c82566d3-53f3-4b6a-8966-9c02ec3b11a4</uuid>
+  <memory>524288</memory>
+  <currentMemory>524288</currentMemory>
+  <vcpu>1</vcpu>
+  <os>
+    <type arch="x86_64" machine="pc-i440fx-focal">hvm</type>
+    <boot dev="hd"/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+    <vmport state="off"/>
+  </features>
+  <cpu mode="host-model"/>
+  <clock offset="utc">
+    <timer name="rtc" tickpolicy="catchup"/>
+    <timer name="pit" tickpolicy="delay"/>
+    <timer name="hpet" present="no"/>
+  </clock>
+  <pm>
+    <suspend-to-mem enabled="no"/>
+    <suspend-to-disk enabled="no"/>
+  </pm>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+    <disk type="file" device="disk">
+      <driver name="qemu" type="qcow2"/>
+      <source file="/var/lib/libvirt/images/vol.qcow2"/>
+      <target dev="hda" bus="ide"/>
+    </disk>
+    <disk type="file" device="cdrom">
+      <driver name="qemu" type="raw"/>
+      <source file="/home/raihan/Downloads/TinyCore-current.iso"/>
+      <target dev="hdb" bus="ide"/>
+      <readonly/>
+    </disk>
+    <controller type="usb" index="0" model="ich9-ehci1"/>
+    <controller type="usb" index="0" model="ich9-uhci1">
+      <master startport="0"/>
+    </controller>
+    <controller type="usb" index="0" model="ich9-uhci2">
+      <master startport="2"/>
+    </controller>
+    <controller type="usb" index="0" model="ich9-uhci3">
+      <master startport="4"/>
+    </controller>
+    <interface type="network">
+      <source network="default"/>
+      <mac address="52:54:00:26:aa:a9"/>
+      <model type="e1000"/>
+    </interface>
+    <console type="pty"/>
+    <channel type="spicevmc">
+      <target type="virtio" name="com.redhat.spice.0"/>
+    </channel>
+    <input type="tablet" bus="usb"/>
+    <graphics type="spice" port="-1" tlsPort="-1" autoport="yes">
+      <image compression="off"/>
+    </graphics>
+    <sound model="ich6"/>
+    <video>
+      <model type="qxl"/>
+    </video>
+    <redirdev bus="usb" type="spicevmc"/>
+    <redirdev bus="usb" type="spicevmc"/>
+  </devices>
+</domain>
