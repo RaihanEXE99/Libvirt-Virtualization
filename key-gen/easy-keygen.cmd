@@ -2,6 +2,9 @@
 ssh-keygen
 ssh-copy-id user@hostname
 
+#SERVER
+sudo apt-get install openssh-server
+
 # AFTER LOGIN OR DIRECTLY
 chmod 755 ~
 logout
